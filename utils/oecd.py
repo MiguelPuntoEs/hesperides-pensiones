@@ -31,8 +31,7 @@ def get_oecd_data(id: str) -> pd.DataFrame:
     df = pd.read_csv(
         build_url(id),
         storage_options=headers,
-        parse_dates=["TIME_PERIOD"],
-        index_col="TIME_PERIOD"
+        parse_dates=["TIME_PERIOD"]
     )
     df.to_parquet(path, engine='fastparquet')
     return df
